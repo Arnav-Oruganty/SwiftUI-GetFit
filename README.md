@@ -4,6 +4,9 @@
 
 App Development
 
+## Problem Statement:
+How about a fitness app that turns workouts into an epic adventure? You'll earn experience points for each exercise, and as you level up, you'll unlock new workout challenges and defeat virtual monsters! 
+
 ## Introduction:
 
 GetFit is a comprehensive workout app designed for iOS devices using SwiftUI, Firebase, and Firestore. Whether you're just starting your     
@@ -18,11 +21,11 @@ The profile view allows users to manage their personal information, including th
 securely managed through Firebase, allowing users to create accounts with their name, email, and password, ensuring a personalized and secure 
 experience.
 
-## Objective
+## Objective:
 
 The objective of GetFit is to provide users with a structured and accessible fitness experience that adapts to their individual progress. By offering tiered workout levels, weight and BMI tracking, calorie and time monitoring, and progress tracking for workouts completed and points earned, GetFit aims to support users in achieving their fitness goals in a convenient and personalized manner. Additionally, the app provides educational resources on diet and exercise to further guide users on their fitness journey.
 
-## Implementation Details
+## Implementation Details:
 
 To test and run the GetFit app, follow these steps:
 
@@ -43,14 +46,14 @@ To test and run the GetFit app, follow these steps:
 
   * Allow some time for the app to install and initialize. Once installation is complete, you're ready to use the app.
  
-## Tech Stack
+## Tech Stack:
 
 * Swift
 * SwiftUI
 * Firebase (for user authentication)
 * Firestore (database for user details)
 
-## Challenges Faced
+## Challenges Faced:
 
 * Managing State and Environment Variables: Handling state and environment variables efficiently throughout the app.
 
@@ -60,7 +63,7 @@ To test and run the GetFit app, follow these steps:
 
 * Workout Data Retrieval: Developing a method to fetch and manage workout data effectively.
 
-## Future Scope
+## Future Scope:
 
 * Integration with Physical Devices: Add a pedometer feature by linking the app to physical devices such as the Apple Watch for enhanced fitness tracking.
 
@@ -70,7 +73,7 @@ To test and run the GetFit app, follow these steps:
 
 * Paid Features: Implement additional paid features once the app is hosted, providing users with premium content and functionality.
   
-## Conclusion
+## Conclusion:
 
 GetFit aims to be a versatile and comprehensive fitness app that meets users' diverse needs through its structured workout levels and detailed progress tracking. With a foundation built on SwiftUI, Firebase, and Firestore, the app provides a seamless experience for managing workouts, tracking health metrics, and engaging with fitness content.
 
