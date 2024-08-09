@@ -47,7 +47,7 @@ struct HomeView: View {
                             .bold()
 
                         LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 2)) {
-                            statsCard(icon: "flame.fill", color: .orange, label: "Calories (kcal)", value: "\(progressViewModel.progress.calories)")
+                            statsCard(icon: "flame.fill", color: .orange, label: "Calories", value: "\(progressViewModel.progress.calories) kcal")
                             statsCard(icon: "dumbbell.fill", color: .white, label: "Workouts", value: "\(progressViewModel.progress.workouts)")
                             statsCard(icon: "star.fill", color: .yellow, label: "Points", value: "\(progressViewModel.progress.points)")
                             statsCard(icon: "clock.fill", color: .blue, label: "Time", value: "\(progressViewModel.progress.time) s")
