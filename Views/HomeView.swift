@@ -1,3 +1,10 @@
+//
+//  HomeView.swift
+//  FitnessApp
+//
+//  Created by Arnav Oruganty on 20/07/24.
+//
+
 import SwiftUI
 
 struct HomeView: View {
