@@ -10,8 +10,10 @@ struct LoginView: View {
         return (viewModel.email.isEmpty || viewModel.password.isEmpty)
     }
     
-    private func checkErrors() {
-        if viewModel.errorMessage != ""{
+    private func handleLogin() {
+        viewModel.login()
+        
+        if viewModel.errorMessage != "" {
             anyErrors = true
         } else {
             anyErrors = false
@@ -89,8 +91,7 @@ struct LoginView: View {
                         .padding(.vertical)
                         
                         Button(action: {
-                            viewModel.login()
-                            checkErrors()
+                            handleLogin()
                         }) {
                             Text("Login")
                                 .font(.title3)
@@ -123,13 +124,18 @@ struct LoginView: View {
                     }
                     .padding()
                     .toolbar {
-                        if isFocused{
-                            Button("Done"){
+                        if isFocused {
+                            Button("Done") {
                                 isFocused = false
                             }
                         }
                     }
-                .alert(viewModel.errorMessage, isPresented: $anyErrors){ }
+                    .alert(viewModel.errorMessage, isPresented: $anyErrors) {
+                        Button("OK", role: .cancel) {
+                            anyErrors = false
+                            viewModel.errorMessage = ""
+                        }
+                    }
                 }
                 .padding(.vertical)
                 
@@ -140,6 +146,8 @@ struct LoginView: View {
         }
     }
 }
+
+
 
 #Preview {
     LoginView()
