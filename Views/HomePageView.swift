@@ -24,7 +24,6 @@ struct HomePageView: View {
                     
                     ReportView(weightViewModel: WeightViewModel(userId: user.id),
                                bmiViewModel: BMIViewModel(userId: user.id))
-                        .environmentObject(ProgressViewModel(userId: user.id))
                         .tabItem {
                             Image(systemName: "chart.bar.xaxis")
                             Text("Report")
