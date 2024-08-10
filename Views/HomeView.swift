@@ -13,11 +13,8 @@ struct HomeView: View {
     @EnvironmentObject var progressViewModel: ProgressViewModel
 
     @State private var showAlert = false
+    @State private var alertTitle = ""
     @State private var alertMessage = ""
-    
-    @State private var showWorkoutAlerts = false
-    @State private var workoutAlertMessage = ""
-    @State private var workoutAlertTitle = ""
     
     let workoutQuotes = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10"].shuffled()
 
@@ -47,7 +44,7 @@ struct HomeView: View {
                             .bold()
 
                         LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 2)) {
-                            statsCard(icon: "flame.fill", color: .orange, label: "Calories (kcal)", value: "\(progressViewModel.progress.calories)")
+                            statsCard(icon: "flame.fill", color: .orange, label: "Calories", value: "\(progressViewModel.progress.calories) kcal")
                             statsCard(icon: "dumbbell.fill", color: .white, label: "Workouts", value: "\(progressViewModel.progress.workouts)")
                             statsCard(icon: "star.fill", color: .yellow, label: "Points", value: "\(progressViewModel.progress.points)")
                             statsCard(icon: "clock.fill", color: .blue, label: "Time", value: "\(progressViewModel.progress.time) s")
@@ -71,6 +68,7 @@ struct HomeView: View {
                             } else {
                                 Button(action: {
                                     showAlert = true
+                                    alertTitle = "Locked!"
                                     alertMessage = "Complete the basic challenge to unlock."
                                 }) {
                                     workoutCardDisabled(label: "INTERMEDIATE")
@@ -85,6 +83,7 @@ struct HomeView: View {
                             } else {
                                 Button(action: {
                                     showAlert = true
+                                    alertTitle = "Locked!"
                                     alertMessage = "Complete the intermediate challenge to unlock."
                                 }) {
                                     workoutCardDisabled(label: "ADVANCED")
@@ -105,6 +104,7 @@ struct HomeView: View {
                             } else {
                                 Button(action: {
                                     showAlert = true
+                                    alertTitle = "Locked!"
                                     alertMessage = "Complete the basic workouts to unlock."
                                 }) {
                                     workoutCardDisabled(label: "BASIC")
@@ -119,6 +119,7 @@ struct HomeView: View {
                             } else {
                                 Button(action: {
                                     showAlert = true
+                                    alertTitle = "Locked!"
                                     alertMessage = "Complete the intermediate workouts to unlock."
                                 }) {
                                     workoutCardDisabled(label: "INTERMEDIATE")
@@ -133,6 +134,7 @@ struct HomeView: View {
                             } else {
                                 Button(action: {
                                     showAlert = true
+                                    alertTitle = "Locked!"
                                     alertMessage = "Complete the advanced workouts to unlock."
                                 }) {
                                     workoutCardDisabled(label: "ADVANCED")
@@ -148,36 +150,33 @@ struct HomeView: View {
             
             .onChange(of: progressViewModel.progress.points) {
                 if progressViewModel.progress.points == 60 {
-                    workoutAlertTitle = "Basic Workout Completed!"
-                    workoutAlertMessage = "Congratulations! You've unlocked the Basic Challenge!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Basic Workout Completed!"
+                    alertMessage = "Congratulations! You've unlocked the Basic Challenge!"
+                    showAlert = true
                 } else if progressViewModel.progress.points == 135 {
-                    workoutAlertTitle = "Basic Challenge Completed!"
-                    workoutAlertMessage = "Congratulations! You've unlocked the Intermediate Workout!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Basic Challenge Completed!"
+                    alertMessage = "Congratulations! You've unlocked the Intermediate Workout!"
+                    showAlert = true
                 } else if progressViewModel.progress.points == 275 {
-                    workoutAlertTitle = "Intermediate Workout Completed!"
-                    workoutAlertMessage = "Congratulations! You've unlocked the Intermediate Challenge!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Intermediate Workout Completed!"
+                    alertMessage = "Congratulations! You've unlocked the Intermediate Challenge!"
+                    showAlert = true
                 } else if progressViewModel.progress.points == 425 {
-                    workoutAlertTitle = "Intermediate Challenge Completed!"
-                    workoutAlertMessage = "Congratulations! You've unlocked the Advanced Workout!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Intermediate Challenge Completed!"
+                    alertMessage = "Congratulations! You've unlocked the Advanced Workout!"
+                    showAlert = true
                 } else if progressViewModel.progress.points == 725 {
-                    workoutAlertTitle = "Advanced Workout Completed!"
-                    workoutAlertMessage = "Congratulations! You've unlocked the Advanced Challenge!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Advanced Workout Completed!"
+                    alertMessage = "Congratulations! You've unlocked the Advanced Challenge!"
+                    showAlert = true
                 } else if progressViewModel.progress.points == 1125 {
-                    workoutAlertTitle = "Advanced Challenge Completed!"
-                    workoutAlertMessage = "Congratulations! You've completed all the workouts and challenges!"
-                    showWorkoutAlerts = true
+                    alertTitle = "Advanced Challenge Completed!"
+                    alertMessage = "Congratulations! You've completed all the workouts and challenges!"
+                    showAlert = true
                 }
             }
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Locked!"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-            }
-            .alert(isPresented: $showWorkoutAlerts) {
-                Alert(title: Text(workoutAlertTitle), message: Text(workoutAlertMessage), dismissButton: .default(Text("OK")))
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
         }
         .onAppear {
@@ -294,4 +293,3 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProgressViewModel(userId: "abc123"))
 }
-
