@@ -111,8 +111,10 @@ struct ProfilePicSelectionView: View {
                     isSheetPresented = false
                 }
                 .font(.title2)
+                .bold()
                 .padding()
-                .frame(maxWidth: .infinity, minHeight: 50)
+                .frame(maxWidth: .infinity)
+                .frame(height: 55)
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
