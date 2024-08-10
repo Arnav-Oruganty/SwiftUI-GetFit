@@ -82,6 +82,8 @@ To test and run the GetFit app, follow these steps:
 
 * `Multi-User Workouts`: Develop a multi-user platform where two or more people can join together for collaborative workout sessions.
 
+* `Widgets and Notifications`: Integrate widgets and notifications into the app to provide convenience and better accessibility.
+
 * `Paid Features`: Implement additional paid features once the app is hosted, providing users with premium content and functionality.
   
 ## Conclusion:
