@@ -1,3 +1,10 @@
+//
+//  AccountViewModel.swift
+//  GetFit
+//
+//  Created by Arnav Oruganty on 23/07/24.
+//
+
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
