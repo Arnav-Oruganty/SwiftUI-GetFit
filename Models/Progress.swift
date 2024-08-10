@@ -1,5 +1,5 @@
 //
-//  Progess.swift
+//  Progress.swift
 //  GetFit
 //
 //  Created by Arnav Oruganty on 02/08/24.
