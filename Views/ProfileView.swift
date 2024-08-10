@@ -1,16 +1,9 @@
-//
-//  AccountView.swift
-//  FitnessApp
-//
-//  Created by Arnav Oruganty on 20/07/24.
-//
-
 import SwiftUI
 
 struct ProfileView: View {
     @StateObject var viewModel = AccountViewModel()
     @State private var isSheetPresented = false
-    @State private var selectedProfilePic: String = UserDefaults.standard.string(forKey: "SelectedProfilePic") ?? "profile"
+    @State private var selectedProfilePic: String = "profile"
 
     let profilePics = ["profilepic1", "profilepic2", "profilepic3", "profilepic4", "profilepic5", "profilepic6", "profilepic7", "profilepic8", "profilepic9", "profilepic10", "profilepic11", "profilepic12", "profilepic13", "profilepic14", "profilepic15"]
 
@@ -21,12 +14,13 @@ struct ProfileView: View {
                     Spacer()
 
                     VStack {
-                        Image(selectedProfilePic)
+                        Image(user.profilePic)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100, height: 100)
                             .foregroundStyle(.blue)
                             .onTapGesture {
+                                selectedProfilePic = user.profilePic
                                 isSheetPresented.toggle()
                             }
 
@@ -65,16 +59,15 @@ struct ProfileView: View {
                 ProfilePicSelectionView(profilePics: profilePics, selectedProfilePic: $selectedProfilePic, isSheetPresented: $isSheetPresented)
                     .presentationDetents([.medium,.large])
             }
+            .onChange(of: selectedProfilePic) {
+                viewModel.updateProfilePic(selectedProfilePic)
+            }
         }
         .onAppear {
             viewModel.fetchUser()
         }
-        .onChange(of: selectedProfilePic) {
-            UserDefaults.standard.set(selectedProfilePic, forKey: "SelectedProfilePic")
-        }
     }
 }
-
 
 struct ProfilePicSelectionView: View {
     let profilePics: [String]
