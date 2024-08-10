@@ -1,5 +1,5 @@
 //
-//  ResourcesView.swift
+//  ArticlesView.swift
 //  GetFit
 //
 //  Created by Arnav Oruganty on 06/08/24.
