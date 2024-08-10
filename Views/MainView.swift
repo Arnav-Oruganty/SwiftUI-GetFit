@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  FitnessApp
 //
 //  Created by Arnav Oruganty on 18/07/24.
