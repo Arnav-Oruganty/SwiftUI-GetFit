@@ -1,5 +1,5 @@
 //
-//  WorkoutData.swift
+//  BasicWorkoutData.swift
 //  GetFit
 //
 //  Created by Arnav Oruganty on 25/07/24.
