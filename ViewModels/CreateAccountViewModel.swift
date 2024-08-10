@@ -14,6 +14,7 @@ class CreateAccountViewModel : ObservableObject {
     @Published var name = ""
     @Published var password = ""
     @Published var errorMessage = ""
+    @Published var profilePic = "profile"
     
     init() {}
     
@@ -35,7 +36,8 @@ class CreateAccountViewModel : ObservableObject {
         let newUser = User (id: id,
                             name: name,
                             email: email,
-                            joined: Date().timeIntervalSince1970)
+                            joined: Date().timeIntervalSince1970, 
+                            profilePic: profilePic)
         
         let database = Firestore.firestore()
         
@@ -60,4 +62,5 @@ class CreateAccountViewModel : ObservableObject {
         return true
     }
 }
+
 
