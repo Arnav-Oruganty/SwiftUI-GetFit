@@ -19,7 +19,7 @@ Within the profile view individuals can control their profile image alongside ot
 
 GetFit aims to create a planned and reachable fitness experience that is easily adaptable to the user’s improvements. GetFit tries to assist users in conveniently achieving their fitness objectives by giving them various workout levels, tracking their weight and BMI, counting calories and time, and keeping track of progress made in workouts completed as well as points earned. The app also offers educational materials on diet and exercise which are intended to help users stay fit.
 
-## Implementation Details:
+## How To Run:
 
 To test and run the GetFit app, follow these steps:
 
