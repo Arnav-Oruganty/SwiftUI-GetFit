@@ -23,20 +23,20 @@ GetFit aims to create a planned and reachable fitness experience that is easily 
 
 To test and run the GetFit app, follow these steps:
 
-* Firebase Setup:
+* `Firebase Setup`:
 
-  * Download the unique GoogleService-Info.plist file from your Firebase console for this project.
+  * Download the unique `GoogleService-Info.plist file` from your Firebase console for this project.
   * Add the GoogleService-Info.plist file to your Xcode project.
 
-* Project Structure:
+* `Project Structure`:
 
-  * Ensure that all the necessary project files are organized in a single directory.
+  * Ensure that all the project files are organized in a single directory.
 
-* Running the App:
+* `Running the App`:
 
-  * You can run the app using an iOS simulator in Xcode or on a physical device that supports iOS 17.5 or later.
+  * You can run the app using an `iOS simulator` in Xcode or on a `physical device` that supports `iOS 17.5 or later`.
 
-* Installation Time:
+* `Installation Time`:
 
   * Allow some time for the app to install and initialize. Once installation is complete, you're ready to use the app.
  
@@ -47,25 +47,35 @@ To test and run the GetFit app, follow these steps:
 * Firebase (for user authentication)
 * Firestore (database for user details)
 
+## References:
+
+* I learnt the concept of Swift and SwiftUI from [Hacking With Swift](https://www.hackingwithswift.com/100/swiftui)
+* Some other YouTube channels that i followed to learn the concepts of SwiftUI:
+  *  [Sean Allen](https://www.youtube.com/@seanallen)
+  *  [CodeWithChris](https://www.youtube.com/@CodeWithChris)
+* I have taken the workout videos from [Leap Fitness](https://www.youtube.com/@LeapFitnessOfficial)
+* I refered [How To Setup & Integrate Firebase to Your iOS App]([How To Setup & Integrate Firebase to Your iOS App](https://www.youtube.com/watch?v=BWK_BdwrB1Y)) to integrate Firebase into my app.
+* I learnt the concept of "Email Authentication using Firebase" from this video [Lesson 1: Project Set Up – SwiftUI To Do List](https://www.youtube.com/watch?v=K-4blUReYoU&list=PL5PR3UyfTWvei-pKlZN7d8r-0tHCK1EKE)
+
 ## Challenges Faced:
 
-* Managing State and Environment Variables: Handling state and environment variables efficiently throughout the app.
+* `Managing State and Environment Variables`: Handling state and environment variables efficiently throughout the app.
 
-* UI Consistency: Maintaining a consistent user interface was challenging. Each time a UI design was completed, there was a temptation to revise it for further improvements.
+* `UI Consistency`: Maintaining a consistent user interface was challenging. Each time a UI design was completed, there was a temptation to revise it for further improvements.
 
-* Firebase Integration: Navigating and configuring Firebase for the project was a complex task.
+* `Firebase Integration`: Navigating and configuring Firebase for the project was a complex task.
 
-* Workout Data Retrieval: Developing a method to fetch and manage workout data effectively.
+* `Workout Data Retrieval`: Developing a method to fetch and manage workout data effectively.
 
 ## Future Scope:
 
-* Integration with Physical Devices: Add a pedometer feature by linking the app to physical devices such as the Apple Watch for enhanced fitness tracking.
+* `Integration with Physical Devices`: Add a pedometer feature by linking the app to physical devices such as the Apple Watch for enhanced fitness tracking.
 
-* Expanded Workout Tiers: While the app currently offers Basic, Intermediate, and Advanced tiers, future updates could introduce muscle-focused workout categories.
+* `Expanded Workout Tiers`: While the app currently offers Basic, Intermediate, and Advanced tiers, future updates could introduce muscle-focused workout categories.
 
-* Multi-User Workouts: Develop a multi-user platform where two or more people can join together for collaborative workout sessions.
+* `Multi-User Workouts`: Develop a multi-user platform where two or more people can join together for collaborative workout sessions.
 
-* Paid Features: Implement additional paid features once the app is hosted, providing users with premium content and functionality.
+* `Paid Features`: Implement additional paid features once the app is hosted, providing users with premium content and functionality.
   
 ## Conclusion:
 
