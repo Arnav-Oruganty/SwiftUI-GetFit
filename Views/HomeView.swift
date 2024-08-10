@@ -1,10 +1,3 @@
-//
-//  TrainingView.swift
-//  FitnessApp
-//
-//  Created by Arnav Oruganty on 20/07/24.
-//
-
 import SwiftUI
 
 struct HomeView: View {
@@ -47,7 +40,7 @@ struct HomeView: View {
                             .bold()
 
                         LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 2)) {
-                            statsCard(icon: "flame.fill", color: .orange, label: "Calories", value: "\(progressViewModel.progress.calories) kcal")
+                            statsCard(icon: "flame.fill", color: .orange, label: "Calories (kcal)", value: "\(progressViewModel.progress.calories)")
                             statsCard(icon: "dumbbell.fill", color: .white, label: "Workouts", value: "\(progressViewModel.progress.workouts)")
                             statsCard(icon: "star.fill", color: .yellow, label: "Points", value: "\(progressViewModel.progress.points)")
                             statsCard(icon: "clock.fill", color: .blue, label: "Time", value: "\(progressViewModel.progress.time) s")
@@ -60,13 +53,13 @@ struct HomeView: View {
                         VStack(spacing: 20) {
                             NavigationLink(destination: BasicWorkoutView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Basic Workout"))
                                 .environmentObject(progressViewModel)) {
-                                    workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt", icon3: "bolt", label: "BASIC", exercises: "12", start: 0, end: 60)
+                                    workoutCardEnabled(color1: .yellow, color2: .gray, color3: .gray, label: "BASIC", exercises: "12", start: 0, end: 60)
                             }
                             
                             if (progressViewModel.progress.points >= 135){
                                 NavigationLink(destination: IntermediateWorkoutView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Intermediate Workout"))
                                     .environmentObject(progressViewModel)) {
-                                        workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt.fill", icon3: "bolt", label: "INTERMEDIATE", exercises: "14", start: 135, end: 275)
+                                        workoutCardEnabled(color1: .yellow, color2: .yellow, color3: .gray, label: "INTERMEDIATE", exercises: "14", start: 135, end: 275)
                                     }
                             } else {
                                 Button(action: {
@@ -80,7 +73,7 @@ struct HomeView: View {
                             if(progressViewModel.progress.points >= 425) {
                                 NavigationLink(destination: AdvancedWorkoutView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Advanced Workout"))
                                     .environmentObject(progressViewModel)) {
-                                        workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt.fill", icon3: "bolt.fill", label: "ADVANCED", exercises: "15", start: 425, end: 725)
+                                        workoutCardEnabled(color1: .yellow, color2: .yellow, color3: .yellow, label: "ADVANCED", exercises: "15", start: 425, end: 725)
                                     }
                             } else {
                                 Button(action: {
@@ -100,7 +93,7 @@ struct HomeView: View {
                             if (progressViewModel.progress.points >= 60) {
                                 NavigationLink(destination: BasicChallengesView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Basic Challenge"))
                                     .environmentObject(progressViewModel)) {
-                                        workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt", icon3: "bolt", label: "BASIC", exercises: "15", start: 60, end: 135)
+                                        workoutCardEnabled(color1: .yellow, color2: .gray, color3: .gray, label: "BASIC", exercises: "15", start: 60, end: 135)
                                     }
                             } else {
                                 Button(action: {
@@ -114,7 +107,7 @@ struct HomeView: View {
                             if (progressViewModel.progress.points >= 275) {
                                 NavigationLink(destination: IntermediateChallengesView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Intermediate Challenge"))
                                     .environmentObject(progressViewModel)) {
-                                        workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt.fill", icon3: "bolt", label: "INTERMEDIATE", exercises: "15", start: 275, end: 425)
+                                        workoutCardEnabled(color1: .yellow, color2: .yellow, color3: .gray, label: "INTERMEDIATE", exercises: "15", start: 275, end: 425)
                                     }
                             } else {
                                 Button(action: {
@@ -128,7 +121,7 @@ struct HomeView: View {
                             if (progressViewModel.progress.points >= 725) {
                                 NavigationLink(destination: AdvancedChallengesView(completionManager: WorkoutCompletionManager(userId: user.id, exerciseType: "Advanced Challenge"))
                                     .environmentObject(progressViewModel)) {
-                                        workoutCardEnabled(icon1: "bolt.fill", icon2: "bolt.fill", icon3: "bolt.fill", label: "ADVANCED", exercises: "20", start: 725, end: 1125)
+                                        workoutCardEnabled(color1: .yellow, color2: .yellow, color3: .yellow, label: "ADVANCED", exercises: "20", start: 725, end: 1125)
                                     }
                             } else {
                                 Button(action: {
@@ -236,25 +229,25 @@ struct HomeView: View {
         .clipShape(.rect(cornerRadius: 20))
     }
     
-    private func workoutCardEnabled(icon1: String, icon2: String, icon3: String, label: String, exercises: String, start: Int, end: Int) -> some View {
+    private func workoutCardEnabled(color1: Color, color2: Color, color3: Color, label: String, exercises: String, start: Int, end: Int) -> some View {
         ZStack {
             HStack {
                 HStack(spacing: 3) {
-                    Image(systemName: icon1)
+                    Image(systemName: "bolt.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 15, height: 15)
-                        .foregroundStyle(.yellow)
-                    Image(systemName: icon2)
+                        .foregroundStyle(color1)
+                    Image(systemName: "bolt.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 15, height: 15)
-                        .foregroundStyle(.yellow)
-                    Image(systemName: icon3)
+                        .foregroundStyle(color2)
+                    Image(systemName: "bolt.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 15, height: 15)
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(color3)
                     
                     Spacer()
                     
@@ -294,3 +287,4 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProgressViewModel(userId: "abc123"))
 }
+
