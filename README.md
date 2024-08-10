@@ -23,22 +23,29 @@ GetFit aims to create a planned and reachable fitness experience that is easily 
 
 To test and run the GetFit app, follow these steps:
 
-* `Firebase Setup`:
+* `Install Xcode`:
+  * Install Xcode on your mac device from the App Store.
+  * To learn more visit [Xcode](https://developer.apple.com/xcode/)
 
-  * Download the unique `GoogleService-Info.plist file` from your Firebase console for this project.
+* `Install Simulator`:
+  * While installing Xcode, you will get an option to install various simulators on your mac. Please install an `iOS simulator`.
+    
+* `Firebase Setup`:
+  * Follow the steps given in [Firebase](https://firebase.google.com/docs/auth/ios/start)
+  * Download the unique `GoogleService-Info.plist file` for this project.
   * Add the GoogleService-Info.plist file to your Xcode project.
 
 * `Project Structure`:
-
+  * Clone this GitHub repository in Xcode.
   * Ensure that all the project files are organized in a single directory.
 
 * `Running the App`:
-
+  * Make sure that you have followed all the previous steps.
   * You can run the app using an `iOS simulator` in Xcode or on a `physical device` that supports `iOS 17.5 or later`.
+  * To know how to configure an iOS simulator or to connect a physical device follow the steps given in [Devices](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device)
 
 * `Installation Time`:
-
-  * Allow some time for the app to install and initialize. Once installation is complete, you're ready to use the app.
+  * Allow the app to install and initialize. Once installation is completed, you're ready to use the app.
  
 ## Tech Stack:
 
