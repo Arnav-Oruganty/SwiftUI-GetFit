@@ -1,17 +1,8 @@
-//
-//  AccountViewModel.swift
-//  GetFit
-//
-//  Created by Arnav Oruganty on 23/07/24.
-//
-
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
 class AccountViewModel: ObservableObject {
-    init() {}
-    
     @Published var user: User? = nil
     
     func fetchUser() {
@@ -28,11 +19,30 @@ class AccountViewModel: ObservableObject {
                 self?.user = User(id: data["id"] as? String ?? "",
                                   name: data["name"] as? String ?? "",
                                   email: data["email"] as? String ?? "",
-                                  joined: data["joined"] as? TimeInterval ?? 0)
+                                  joined: data["joined"] as? TimeInterval ?? 0,
+                                  profilePic: data["profilePic"] as? String ?? "profile")
             }
         }
     }
-        
+    
+    func updateProfilePic(_ pic: String) {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).updateData([
+            "profilePic": pic
+        ]) { error in
+            if let error = error {
+                print("Error updating profile picture: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.user?.profilePic = pic
+                }
+            }
+        }
+    }
+    
     func logOut() {
         do {
             try Auth.auth().signOut()
